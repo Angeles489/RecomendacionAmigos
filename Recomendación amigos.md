@@ -156,10 +156,15 @@ El sistema desarrollado proporciona una base clara y funcional para un motor de 
 
 ✔ Capacidades Actuales
 Aspecto	Estado
-Registro de usuarios	✔ Se permite almacenar perfiles con múltiples intereses
-Cálculo de afinidad	✔ Similitud por coincidencia directa de intereses
-Generación de recomendaciones	✔ Ordenadas por puntaje de similitud
-Arquitectura modular	✔ Fácil de extender y mantener
+Registro de usuarios	
+✔ Se permite almacenar perfiles con múltiples intereses
+Cálculo de afinidad	
+✔ Similitud por coincidencia directa de intereses
+Generación de recomendaciones	
+✔ Ordenadas por puntaje de similitud
+Arquitectura modular	
+✔ Fácil de extender y mantener
+
 📌 Beneficios Principales
 
 Código simple y entendible
