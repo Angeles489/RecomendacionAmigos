@@ -51,9 +51,6 @@ int main() {
     cout << "\n\n======================================" << endl;
     recomendar(&u3, 1);
 
-    // -----------------------------------------------------------------
-    // CÓDIGO AÑADIDO PARA PAUSAR LA TERMINAL ANTES DE CERRARSE
-    // -----------------------------------------------------------------
     cout << "\nPresiona ENTER para salir...";
 
     // 1. Limpia cualquier entrada anterior en el buffer (evita que se salte la pausa)
