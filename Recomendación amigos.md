@@ -126,7 +126,7 @@ int main() {
     return 0;
 }
 ```
-⏱ 5. Consideraciones de Rendimiento
+###⏱ 5. Consideraciones de Rendimiento
 
 La eficiencia del algoritmo es importante para mantener un buen desempeño a medida que crece el número de usuarios.
 El tiempo total depende de:
@@ -135,7 +135,7 @@ N → número de usuarios en la red
 
 I → número promedio de intereses por usuario
 
-📊 Complejidad Temporal
+📊 Complejidad Temporal 
 Proceso	Complejidad	Descripción
 Similitud entre dos usuarios (A y B)	O(I_A × I_B)	Se comparan todos los intereses de A contra los de B.
 Recomendación para 1 usuario	O(N × I²)	Se calcula similitud con todos los demás usuarios.
@@ -150,7 +150,7 @@ Ordenamiento final	O(N log N)	Mantener (correcto y eficiente)
 
 Implementar estas mejoras permitiría escalar el sistema a redes más complejas o con miles de usuarios.
 
-🏁 6. Conclusión del Módulo
+###🏁 6. Conclusión del Módulo
 
 El sistema desarrollado proporciona una base clara y funcional para un motor de recomendación dentro del proyecto RedSocial.
 
