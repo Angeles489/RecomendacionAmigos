@@ -125,24 +125,4 @@ int main() {
     
     return 0;
 }
-⏱ 5. Consideraciones de RendimientoComplejidad TemporalEl cálculo de similitud entre dos usuarios es de $O(I_1 \times I_2)$ (donde $I$ es la cantidad de intereses). Al comparar esto contra $N$ usuarios en la red:$$O(N \times I^2)$$Aplicabilidad: Este método es eficiente para redes pequeñas y usuarios con pocos intereses.Escalabilidad: Para redes de gran escala, se recomienda migrar el almacenamiento de intereses a estructuras con complejidad de búsqueda $O(1)$ como hash sets (std::unordered_set) para optimizar la función calcularSimilitud.
-
-🏁 6. Conclusión
-
-
-
-El sistema permite:
-
-
-
-✔ Registrar usuarios con intereses
-
-✔ Calcular similitud entre perfiles
-
-✔ Generar recomendaciones ordenadas
-
-✔ Escalar y extender fácilmente
-
-
-
-Es una base excelente para construir un sistema de recomendación social.
+⏱ 5. Consideraciones de RendimientoLa eficiencia del algoritmo es crucial para la escalabilidad. La complejidad se calcula en función de $N$ (número de usuarios) e $I$ (intereses promedio por usuario).📊 Complejidad TemporalEl algoritmo implementado tiene un rendimiento cuadrático en la comparación de intereses:ProcesoComplejidadDescripciónSimilitud entre A y B$O(I_A \times I_B)$Se itera sobre los intereses del Usuario A y se comparan con los de B.Búsqueda Total$O(N \times I^2)$Complejidad total al comparar contra $N$ usuarios en la red.🚀 Optimización y EscalabilidadFactorSolución ActualRecomendación para EscalarBúsqueda de InteresesBúsqueda $O(I)$ dentro de std::vector (lenta).Migrar el almacenamiento de intereses a hash sets (std::unordered_set).EficienciaEficiente en redes pequeñas.Utilizar estructuras $O(1)$ para reducir la complejidad total a $O(N \times I)$.🏁 6. Conclusión del MóduloEste sistema de recomendación es una base sólida para el proyecto RedSocial.AspectoEstadoRegistro de Datos✔ Permite registrar usuarios y sus intereses.Afiniadad✔ Calcula la similitud de perfiles de forma clara.Recomendaciones✔ Genera listas de sugerencias ordenadas por puntaje.Extensión✔ La arquitectura es extensible para añadir más métricas de afinidad.
