@@ -1,137 +1,83 @@
-🌐💬 Sistema de Recomendación de Amigos — RedSocial
-🎯 1. Objetivo del Módulo
+# 🌐💬 Sistema de Recomendación de Amigos — RedSocial (C++)
 
-El propósito de este módulo es implementar un sistema de recomendación de amigos basado en similitud entre usuarios dentro de una red social.
+Este proyecto implementa un sistema básico de recomendación de amigos utilizando un algoritmo simple de **Coincidencia de Intereses (Interests Matching)**. Forma la base del proyecto *RedSocial*, diseñado para sugerir conexiones relevantes basadas en afinidad entre perfiles.
 
-El algoritmo analiza los intereses de cada usuario y calcula coincidencias para sugerir qué perfiles son más compatibles.
 
-Este módulo forma parte del proyecto RedSocial, cuyo objetivo es modelar una red simple capaz de sugerir conexiones relevantes utilizando criterios de afinidad.
 
-🤝 2. Concepto: Recomendación Basada en Similitud
+---
 
-El sistema implementado utiliza el enfoque Interests Matching (coincidencia de intereses).
+## 🎯 1. Concepto y Objetivo
 
-🧠 Principio de Funcionamiento
+El módulo busca modelar una red simple capaz de sugerir nuevos amigos. El principio central es la **Similitud Basada en Intereses**, que calcula cuántos intereses tienen dos usuarios en común.
 
-Cada usuario posee un conjunto de intereses, por ejemplo:
-"Música", "Programación", "Videojuegos".
+### 🧠 Principio de Funcionamiento
 
-El proceso es:
+El algoritmo compara el conjunto de intereses del **usuario objetivo** contra los de todos los demás perfiles en la red.
 
-🔍 Comparar los intereses del usuario objetivo con los de todos los demás.
+1.  **🔍 Comparación:** Determina la intersección de intereses entre dos usuarios.
+2.  **🧮 Cálculo de Similitud:** El puntaje es igual a la cantidad de intereses compartidos.
+3.  **⭐ Ordenamiento:** Los usuarios se ordenan de mayor a menor puntaje de similitud.
+4.  **📤 Sugerencia:** Se devuelven los perfiles más compatibles.
 
-📊 Calcular un puntaje de similitud basado en:
+### 📊 Fórmula de Similitud
 
-Cantidad de intereses compartidos.
+La métrica de similitud se define como la cardinalidad de la intersección de los conjuntos de intereses:
 
-Intereses distintos.
+$$\text{similitud}(A,B) = |\text{intereses}(A) \cap \text{intereses}(B)|$$
 
-⭐ Ordenar a los usuarios según compatibilidad.
+---
 
-🤖 Sugerir los usuarios con mayor similitud.
+## 🛠 2. Implementación del Sistema
 
-Es un método simple, eficiente y ideal para redes pequeñas.
+El módulo está escrito en **C++** y sigue un diseño modular y orientado a objetos, priorizando la claridad y el rendimiento en redes pequeñas.
 
-🛠 3. Implementación del Sistema
-📌 3.1 Lenguaje de implementación
+### 📌 2.1 Estructura del Código
 
-El módulo está implementado en C++, organizado en tres archivos:
+| Archivo | Rol | Descripción |
+| :--- | :--- | :--- |
+| **`RedSocial.h`** | Interfaz (Header) | Define las clases `Usuario` y `RedSocial`, y sus métodos públicos. |
+| **`RedSocial.cpp`** | Implementación | Contiene la lógica de inicialización, gestión de intereses y el algoritmo `calcularSimilitud`. |
+| **`main.cpp`** | Ejecución/Ejemplo | Archivo principal que inicializa la red con datos de ejemplo y muestra las recomendaciones. |
 
-RedSocial.h
+### 📦 2.2 Estructuras de Datos Clave
 
-RedSocial.cpp
+| Componente | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `Usuario` | Clase | Gestiona el nombre y el conjunto de intereses de cada perfil. |
+| `Intereses` | `std::vector<std::string>` | Lista dinámica utilizada para almacenar los intereses del usuario. |
+| `RedSocial` | Clase | Contenedor principal que almacena todos los `Usuario`s y expone la función de recomendación. |
 
-main.cpp
+---
 
-Se prioriza claridad, modularidad y escalabilidad.
+## 🖥 3. Resultados y Ejemplo de Ejecución
 
-📦 3.2 Estructuras de Datos Clave
-Componente	Tipo	Descripción
-Usuario	Clase	Gestiona nombre + intereses.
-Intereses	vector<string>	Lista dinámica de intereses.
-RedSocial	Clase	Contiene usuarios y funciones de recomendación.
-Similitud	Entero	Representa coincidencias entre dos usuarios.
-⚙️ 3.3 Algoritmo de Recomendación
+El `main.cpp` inicializa un ejemplo de red social para demostrar el funcionamiento del algoritmo.
 
-El algoritmo sigue estos pasos:
+### 👥 3.1 Usuarios de Ejemplo
 
-🧍 Seleccionar usuario objetivo.
+| Usuario | Intereses |
+| :--- | :--- |
+| **Ana** (Objetivo) | Música, Cine, Programación |
+| **Pedro** | Cine, Programación |
+| **Luis** | Programación, Videojuegos |
+| **Marta** | Música, Lectura |
 
-🔄 Comparar intereses con los demás usuarios.
+### 🔎 3.2 Análisis de Recomendación para **Ana**
 
-🧮 Calcular similitud:
+| Usuario | Intereses Compartidos | Puntaje ($\text{similitud}$) |
+| :--- | :--- | :--- |
+| **Pedro** | Cine, Programación | **2** |
+| **Luis** | Programación | **1** |
+| **Marta** | Música | **1** |
 
-𝑠
-𝑖
-𝑚
-𝑖
-𝑙
-𝑖
-𝑡
-𝑢
-𝑑
-(
-𝐴
-,
-𝐵
-)
-=
-∣
-𝑖
-𝑛
-𝑡
-𝑒
-𝑟
-𝑒
-𝑠
-𝑒
-𝑠
-(
-𝐴
-)
-∩
-𝑖
-𝑛
-𝑡
-𝑒
-𝑟
-𝑒
-𝑠
-𝑒
-𝑠
-(
-𝐵
-)
-∣
-similitud(A,B)=∣intereses(A)∩intereses(B)∣
+### 📄 Salida de Consola Esperada
 
-📈 Ordenar usuarios según mayor similitud.
-
-📤 Devolver lista de sugeridos.
-
-Este método es equivalente a un conteo de intersección, ideal para un primer sistema de recomendaciones.
-
-📊 4. Resultados y Ejemplo
-👥 4.1 Usuarios de ejemplo
-Usuario	Intereses
-Ana	Música, Cine, Programación
-Luis	Programación, Videojuegos
-Marta	Música, Lectura
-Pedro	Cine, Programación
-🔎 Recomendación para Ana
-Usuario	Intereses compartidos	Puntaje
-Pedro	Cine, Programación	2
-Luis	Programación	1
-Marta	Música	1
-🖥 Salida esperada en consola
+```bash
 Recomendaciones para Ana:
-1. Pedro (2 intereses en común)
-2. Luis (1 interés en común)
-3. Marta (1 interés en común)
-
-💻 5. Código del Sistema
-📄 5.1 RedSocial.h
-#ifndef REDSOCIAL_H
+- Pedro (2 intereses en común)
+- Luis (1 intereses en común)
+- Marta (1 intereses en común)
+💻 4. Código FuenteA continuación, se muestra el código esencial de cada componente del sistema.📄 4.1 RedSocial.hC++#ifndef REDSOCIAL_H
 #define REDSOCIAL_H
 
 #include <string>
@@ -139,154 +85,64 @@ Recomendaciones para Ana:
 #include <algorithm>
 
 class Usuario {
-private:
-    std::string nombre;
-    std::vector<std::string> intereses;
-
-public:
-    Usuario(std::string nombre, std::vector<std::string> intereses);
-
-    std::string getNombre() const;
-    std::vector<std::string> getIntereses() const;
+// ... (Definición de Usuario)
 };
 
 class RedSocial {
-private:
-    std::vector<Usuario> usuarios;
-
-    int calcularSimilitud(const Usuario& u1, const Usuario& u2) const;
-
-public:
-    void agregarUsuario(std::string nombre, std::vector<std::string> intereses);
-    std::vector<std::pair<std::string, int>> recomendarAmigos(std::string nombreUsuario);
+// ... (Definición de RedSocial y funciones)
 };
 
 #endif
+📄 4.2 RedSocial.cppC++#include "RedSocial.h"
 
-📄 5.2 RedSocial.cpp
-#include "RedSocial.h"
-
-Usuario::Usuario(std::string nombre, std::vector<std::string> intereses)
-    : nombre(nombre), intereses(intereses) {}
-
-std::string Usuario::getNombre() const {
-    return nombre;
-}
-
-std::vector<std::string> Usuario::getIntereses() const {
-    return intereses;
-}
-
-void RedSocial::agregarUsuario(std::string nombre, std::vector<std::string> intereses) {
-    usuarios.emplace_back(nombre, intereses);
-}
+// Implementación de Usuario::Usuario, getNombre, getIntereses, etc.
 
 int RedSocial::calcularSimilitud(const Usuario& u1, const Usuario& u2) const {
     int similitud = 0;
-
-    for (const auto& interes1 : u1.getIntereses()) {
-        for (const auto& interes2 : u2.getIntereses()) {
-            if (interes1 == interes2) {
-                similitud++;
-            }
-        }
-    }
-
+    // Lógica: Se itera sobre los intereses de u1 y se comparan contra los intereses de u2.
+    // ... (Implementación)
     return similitud;
 }
 
 std::vector<std::pair<std::string, int>> RedSocial::recomendarAmigos(std::string nombreUsuario) {
-    Usuario* objetivo = nullptr;
-    for (auto& u : usuarios) {
-        if (u.getNombre() == nombreUsuario) {
-            objetivo = &u;
-            break;
-        }
-    }
-
-    if (!objetivo) return {};
-
-    std::vector<std::pair<std::string, int>> recomendaciones;
-
-    for (auto& otro : usuarios) {
-        if (otro.getNombre() != nombreUsuario) {
-            int score = calcularSimilitud(*objetivo, otro);
-            recomendaciones.push_back({otro.getNombre(), score});
-        }
-    }
-
-    std::sort(recomendaciones.begin(), recomendaciones.end(),
-              [](const auto& a, const auto& b) {
-                  return a.second > b.second;
-              });
-
-    return recomendaciones;
+    // Lógica: Busca el usuario objetivo, calcula la similitud con todos los demás, ordena los resultados.
+    // ... (Implementación)
 }
-
-📄 5.3 main.cpp
-#include <iostream>
+📄 4.3 main.cppC++#include <iostream>
 #include "RedSocial.h"
 
 int main() {
     RedSocial red;
-
+    
+    // Inicialización de datos de ejemplo
     red.agregarUsuario("Ana", {"Música", "Cine", "Programación"});
     red.agregarUsuario("Luis", {"Programación", "Videojuegos"});
-    red.agregarUsuario("Marta", {"Música", "Lectura"});
-    red.agregarUsuario("Pedro", {"Cine", "Programación"});
-
+    // ...
+    
+    // Generación y muestra de resultados
     auto recomendaciones = red.recomendarAmigos("Ana");
-
-    std::cout << "Recomendaciones para Ana:\n";
-    for (auto& r : recomendaciones) {
-        std::cout << "- " << r.first << " (" << r.second << " intereses en común)\n";
-    }
-
+    // ...
+    
     return 0;
 }
+⏱ 5. Consideraciones de RendimientoComplejidad TemporalEl cálculo de similitud entre dos usuarios es de $O(I_1 \times I_2)$ (donde $I$ es la cantidad de intereses). Al comparar esto contra $N$ usuarios en la red:$$O(N \times I^2)$$Aplicabilidad: Este método es eficiente para redes pequeñas y usuarios con pocos intereses.Escalabilidad: Para redes de gran escala, se recomienda migrar el almacenamiento de intereses a estructuras con complejidad de búsqueda $O(1)$ como hash sets (std::unordered_set) para optimizar la función calcularSimilitud.
 
-⏱ 6. Complejidad Temporal
+🏁 6. Conclusión
 
-Similitud entre dos usuarios:
 
-𝑂
-(
-𝐼
-1
-×
-𝐼
-2
-)
-O(I
-1
-	​
-
-×I
-2
-	​
-
-)
-
-Comparar contra N usuarios:
-
-𝑂
-(
-𝑁
-×
-𝐼
-)
-O(N×I)
-
-Funciona eficientemente en redes pequeñas.
-Para redes grandes, podrían usarse estructuras como hash sets.
-
-🏁 7. Conclusión
 
 El sistema permite:
 
+
+
 ✔ Registrar usuarios con intereses
+
 ✔ Calcular similitud entre perfiles
+
 ✔ Generar recomendaciones ordenadas
+
 ✔ Escalar y extender fácilmente
+
+
 
 Es una base excelente para construir un sistema de recomendación social.
