@@ -125,7 +125,11 @@ int main() {
     
     return 0;
 }
+<<<<<<< HEAD
 
+=======
+```
+>>>>>>> 340880c243cdad07326192d4d3a6fe3381eb9142
 ### ⏱ 5. Consideraciones de Rendimiento
 
 La eficiencia del algoritmo es importante para mantener un buen desempeño a medida que crece el número de usuarios.
@@ -137,7 +141,14 @@ El tiempo total depende de:
 
 ---
 
+<<<<<<< HEAD
 ## 📊 Complejidad Temporal
+=======
+📊 Complejidad Temporal 
+Proceso	Complejidad	Descripción
+Similitud entre dos usuarios (A y B)	O(I_A × I_B)	Se comparan todos los intereses de A contra los de B.
+Recomendación para 1 usuario	O(N × I²)	Se calcula similitud con todos los demás usuarios.
+>>>>>>> 340880c243cdad07326192d4d3a6fe3381eb9142
 
 | Proceso                               | Complejidad       | Descripción                                                   |
 |----------------------------------------|--------------------|---------------------------------------------------------------|
@@ -158,11 +169,30 @@ El tiempo total depende de:
 
 Implementar estas mejoras permitiría escalar el sistema a redes más complejas o con miles de usuarios.
 
+<<<<<<< HEAD
 ---
+=======
+### 🏁 6. Conclusión del Módulo
+>>>>>>> 340880c243cdad07326192d4d3a6fe3381eb9142
 
  🏁 6. Conclusión del Módulo
 
+<<<<<<< HEAD
 El sistema desarrollado proporciona una base clara y funcional para un motor de recomendación dentro del proyecto **RedSocial**.
+=======
+✔ Capacidades Actuales
+Aspecto	Estado
+Registro de usuarios	
+✔ Se permite almacenar perfiles con múltiples intereses
+Cálculo de afinidad	
+✔ Similitud por coincidencia directa de intereses
+Generación de recomendaciones	
+✔ Ordenadas por puntaje de similitud
+Arquitectura modular	
+✔ Fácil de extender y mantener
+
+📌 Beneficios Principales
+>>>>>>> 340880c243cdad07326192d4d3a6fe3381eb9142
 
 ### ✔ Capacidades Actuales
 
