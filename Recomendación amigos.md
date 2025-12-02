@@ -126,4 +126,46 @@ int main() {
     return 0;
 }
 ```
-⏱ 5. Consideraciones de RendimientoLa eficiencia del algoritmo es crucial para la escalabilidad. La complejidad se calcula en función de $N$ (número de usuarios) e $I$ (intereses promedio por usuario).📊 Complejidad TemporalEl algoritmo implementado tiene un rendimiento cuadrático en la comparación de intereses:ProcesoComplejidadDescripciónSimilitud entre A y B$O(I_A \times I_B)$Se itera sobre los intereses del Usuario A y se comparan con los de B.Búsqueda Total$O(N \times I^2)$Complejidad total al comparar contra $N$ usuarios en la red.🚀 Optimización y EscalabilidadFactorSolución ActualRecomendación para EscalarBúsqueda de InteresesBúsqueda $O(I)$ dentro de std::vector (lenta).Migrar el almacenamiento de intereses a hash sets (std::unordered_set).EficienciaEficiente en redes pequeñas.Utilizar estructuras $O(1)$ para reducir la complejidad total a $O(N \times I)$.🏁 6. Conclusión del MóduloEste sistema de recomendación es una base sólida para el proyecto RedSocial.AspectoEstadoRegistro de Datos✔ Permite registrar usuarios y sus intereses.Afiniadad✔ Calcula la similitud de perfiles de forma clara.Recomendaciones✔ Genera listas de sugerencias ordenadas por puntaje.Extensión✔ La arquitectura es extensible para añadir más métricas de afinidad.
+⏱ 5. Consideraciones de Rendimiento
+
+La eficiencia del algoritmo es importante para mantener un buen desempeño a medida que crece el número de usuarios.
+El tiempo total depende de:
+
+N → número de usuarios en la red
+
+I → número promedio de intereses por usuario
+
+📊 Complejidad Temporal
+Proceso	Complejidad	Descripción
+Similitud entre dos usuarios (A y B)	O(I_A × I_B)	Se comparan todos los intereses de A contra los de B.
+Recomendación para 1 usuario	O(N × I²)	Se calcula similitud con todos los demás usuarios.
+
+📌 En redes pequeñas este rendimiento es óptimo; en redes grandes podría ser costoso.
+
+🚀 Optimización y Escalabilidad
+Factor	Situación Actual	Recomendación
+Búsqueda de intereses	Cada búsqueda es O(I) en un std::vector	Migrar a std::unordered_set para lograr búsquedas O(1)
+Escalabilidad general	Adecuado para redes pequeñas	Reducir a complejidad final aproximada O(N × I) usando estructuras hash
+Ordenamiento final	O(N log N)	Mantener (correcto y eficiente)
+
+Implementar estas mejoras permitiría escalar el sistema a redes más complejas o con miles de usuarios.
+
+🏁 6. Conclusión del Módulo
+
+El sistema desarrollado proporciona una base clara y funcional para un motor de recomendación dentro del proyecto RedSocial.
+
+✔ Capacidades Actuales
+Aspecto	Estado
+Registro de usuarios	✔ Se permite almacenar perfiles con múltiples intereses
+Cálculo de afinidad	✔ Similitud por coincidencia directa de intereses
+Generación de recomendaciones	✔ Ordenadas por puntaje de similitud
+Arquitectura modular	✔ Fácil de extender y mantener
+📌 Beneficios Principales
+
+Código simple y entendible
+
+Buen rendimiento para redes pequeñas
+
+Fácil de integrar con módulos futuros
+
+Perfecto para prácticas de POO y algoritmos básicos
