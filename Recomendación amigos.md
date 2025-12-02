@@ -126,7 +126,7 @@ int main() {
     return 0;
 }
 ```
-###⏱ 5. Consideraciones de Rendimiento
+### ⏱ 5. Consideraciones de Rendimiento
 
 La eficiencia del algoritmo es importante para mantener un buen desempeño a medida que crece el número de usuarios.
 El tiempo total depende de:
@@ -150,7 +150,7 @@ Ordenamiento final	O(N log N)	Mantener (correcto y eficiente)
 
 Implementar estas mejoras permitiría escalar el sistema a redes más complejas o con miles de usuarios.
 
-###🏁 6. Conclusión del Módulo
+### 🏁 6. Conclusión del Módulo
 
 El sistema desarrollado proporciona una base clara y funcional para un motor de recomendación dentro del proyecto RedSocial.
 
