@@ -1,27 +1,66 @@
-🌐 Módulo: Sistema de Recomendación de Amigos (RedSocial)
-🧠 Algoritmo de similitud basado en intereses
+🌐💬 Sistema de Recomendación de Amigos — RedSocial
 🎯 1. Objetivo del Módulo
 
-El propósito de este módulo es implementar un sistema de recomendación de amigos que analice los intereses de los usuarios dentro de una red social y determine qué tan compatibles son.
+El propósito de este módulo es implementar un sistema de recomendación de amigos basado en similitud entre usuarios dentro de una red social.
 
-✔ Identifica similitudes
-✔ Ordena usuarios por afinidad
-✔ Recomienda nuevas conexiones
+El algoritmo analiza los intereses de cada usuario y calcula coincidencias para sugerir qué perfiles son más compatibles.
 
-Este módulo forma parte del proyecto RedSocial, enfocado en modelar un sistema básico pero funcional de sugerencias sociales.
+Este módulo forma parte del proyecto RedSocial, cuyo objetivo es modelar una red simple capaz de sugerir conexiones relevantes utilizando criterios de afinidad.
 
 🤝 2. Concepto: Recomendación Basada en Similitud
 
-El sistema utiliza el método Interests Matching, comparando intereses comunes entre usuarios.
+El sistema implementado utiliza el enfoque Interests Matching (coincidencia de intereses).
 
-🔎 Principio de Funcionamiento
+🧠 Principio de Funcionamiento
 
-🧍 Cada usuario tiene una lista de intereses
-🔄 Se comparan los intereses del usuario objetivo con los demás
-📊 Se calcula un puntaje de similitud
-⭐ Se recomiendan los usuarios con mayor afinidad
+Cada usuario posee un conjunto de intereses, por ejemplo:
+"Música", "Programación", "Videojuegos".
 
-📐 Fórmula de similitud
+El proceso es:
+
+🔍 Comparar los intereses del usuario objetivo con los de todos los demás.
+
+📊 Calcular un puntaje de similitud basado en:
+
+Cantidad de intereses compartidos.
+
+Intereses distintos.
+
+⭐ Ordenar a los usuarios según compatibilidad.
+
+🤖 Sugerir los usuarios con mayor similitud.
+
+Es un método simple, eficiente y ideal para redes pequeñas.
+
+🛠 3. Implementación del Sistema
+📌 3.1 Lenguaje de implementación
+
+El módulo está implementado en C++, organizado en tres archivos:
+
+RedSocial.h
+
+RedSocial.cpp
+
+main.cpp
+
+Se prioriza claridad, modularidad y escalabilidad.
+
+📦 3.2 Estructuras de Datos Clave
+Componente	Tipo	Descripción
+Usuario	Clase	Gestiona nombre + intereses.
+Intereses	vector<string>	Lista dinámica de intereses.
+RedSocial	Clase	Contiene usuarios y funciones de recomendación.
+Similitud	Entero	Representa coincidencias entre dos usuarios.
+⚙️ 3.3 Algoritmo de Recomendación
+
+El algoritmo sigue estos pasos:
+
+🧍 Seleccionar usuario objetivo.
+
+🔄 Comparar intereses con los demás usuarios.
+
+🧮 Calcular similitud:
+
 𝑠
 𝑖
 𝑚
@@ -66,59 +105,32 @@ El sistema utiliza el método Interests Matching, comparando intereses comunes e
 ∣
 similitud(A,B)=∣intereses(A)∩intereses(B)∣
 
-Entre más elementos compartan, mayor afinidad existe.
+📈 Ordenar usuarios según mayor similitud.
 
-🏗️ 3. Implementación del Sistema
-⚙️ 3.1 Lenguaje y Organización
+📤 Devolver lista de sugeridos.
 
-📌 Lenguaje: C++
-📌 Archivos utilizados:
-
-📁 RedSocial.h  
-📁 RedSocial.cpp  
-📁 main.cpp  
-
-
-El código está diseñado para ser claro, modular y fácil de extender.
-
-🧩 3.2 Estructuras de Datos Clave
-🧱 Componente	🔠 Tipo	📝 Descripción
-Usuario	Clase	Representa un usuario con nombre e intereses
-Intereses	vector<string>	Lista dinámica de intereses
-RedSocial	Clase	Contiene usuarios y el sistema de recomendación
-Similitud	Entero	Número de intereses en común
-🧮 3.3 Algoritmo de Recomendación
-
-🎯 Seleccionar usuario objetivo
-
-🔍 Comparar sus intereses con los demás
-
-➕ Calcular similitud
-
-📊 Ordenar por mayor afinidad
-
-🤝 Devolver usuarios recomendados
+Este método es equivalente a un conteo de intersección, ideal para un primer sistema de recomendaciones.
 
 📊 4. Resultados y Ejemplo
-👥 4.1 Usuarios del ejemplo
+👥 4.1 Usuarios de ejemplo
 Usuario	Intereses
 Ana	Música, Cine, Programación
 Luis	Programación, Videojuegos
 Marta	Música, Lectura
 Pedro	Cine, Programación
-⭐ Recomendación para Ana
+🔎 Recomendación para Ana
 Usuario	Intereses compartidos	Puntaje
 Pedro	Cine, Programación	2
 Luis	Programación	1
 Marta	Música	1
-💻 Salida esperada
+🖥 Salida esperada en consola
 Recomendaciones para Ana:
 1. Pedro (2 intereses en común)
 2. Luis (1 interés en común)
 3. Marta (1 interés en común)
 
-🧾 5. Código del Sistema
-📂 5.1 RedSocial.h
+💻 5. Código del Sistema
+📄 5.1 RedSocial.h
 #ifndef REDSOCIAL_H
 #define REDSOCIAL_H
 
@@ -151,7 +163,7 @@ public:
 
 #endif
 
-📂 5.2 RedSocial.cpp
+📄 5.2 RedSocial.cpp
 #include "RedSocial.h"
 
 Usuario::Usuario(std::string nombre, std::vector<std::string> intereses)
@@ -211,7 +223,7 @@ std::vector<std::pair<std::string, int>> RedSocial::recomendarAmigos(std::string
     return recomendaciones;
 }
 
-📂 5.3 main.cpp
+📄 5.3 main.cpp
 #include <iostream>
 #include "RedSocial.h"
 
@@ -233,9 +245,10 @@ int main() {
     return 0;
 }
 
-⚡ 6. Complejidad Temporal
-Operación	Complejidad
-Comparar dos usuarios	
+⏱ 6. Complejidad Temporal
+
+Similitud entre dos usuarios:
+
 𝑂
 (
 𝐼
@@ -253,28 +266,27 @@ O(I
 	​
 
 )
-Comparar con N usuarios	
+
+Comparar contra N usuarios:
+
 𝑂
 (
 𝑁
 ×
 𝐼
-2
 )
-O(N×I
-2
-)
+O(N×I)
 
-✔ Eficiente para redes pequeñas
-✔ Fácil de mejorar con estructuras hash
+Funciona eficientemente en redes pequeñas.
+Para redes grandes, podrían usarse estructuras como hash sets.
 
 🏁 7. Conclusión
 
-Este sistema permite:
+El sistema permite:
 
-✨ Registrar usuarios
-✨ Calcular similitud
-✨ Ordenar recomendaciones
-✨ Extender el modelo fácilmente
+✔ Registrar usuarios con intereses
+✔ Calcular similitud entre perfiles
+✔ Generar recomendaciones ordenadas
+✔ Escalar y extender fácilmente
 
-Es un enfoque práctico, escalable y excelente como primer sistema de recomendación.
+Es una base excelente para construir un sistema de recomendación social.
