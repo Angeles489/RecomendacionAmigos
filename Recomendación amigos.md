@@ -126,6 +126,63 @@ int main() {
     return 0;
 }
 
+### ⏱ 5. Consideraciones de Rendimiento
+
+La eficiencia del algoritmo es importante para mantener un buen desempeño a medida que crece el número de usuarios.
+
+El tiempo total depende de:
+
+- **N** → número de usuarios en la red  
+- **I** → número promedio de intereses por usuario
+
+---
+
+## 📊 Complejidad Temporal
+
+| Proceso                               | Complejidad       | Descripción                                                   |
+|----------------------------------------|--------------------|---------------------------------------------------------------|
+| Similitud entre dos usuarios (A y B)   | `O(I_A × I_B)`     | Se comparan todos los intereses de A contra los de B.        |
+| Recomendación para 1 usuario           | `O(N × I²)`        | Se calcula similitud con todos los demás usuarios.           |
+
+📌 *En redes pequeñas este rendimiento es óptimo; en redes grandes podría ser costoso.*
+
+---
+
+## 🚀 Optimización y Escalabilidad
+
+| Factor                   | Situación Actual                               | Recomendación                                                |
+|--------------------------|------------------------------------------------|--------------------------------------------------------------|
+| Búsqueda de intereses    | Cada búsqueda es `O(I)` usando `std::vector`   | Migrar a `std::unordered_set` para búsquedas `O(1)`         |
+| Escalabilidad general    | Adecuado para redes pequeñas                   | Reducir la complejidad total hacia `O(N × I)` con hashing   |
+| Ordenamiento final       | `O(N log N)`                                   | Mantener: es correcto y suficientemente eficiente            |
+
+Implementar estas mejoras permitiría escalar el sistema a redes más complejas o con miles de usuarios.
+
+---
+
+ 🏁 6. Conclusión del Módulo
+
+El sistema desarrollado proporciona una base clara y funcional para un motor de recomendación dentro del proyecto **RedSocial**.
+
+### ✔ Capacidades Actuales
+
+| Aspecto                     | Estado |
+|-----------------------------|--------|
+| Registro de usuarios        | ✔ Se permite almacenar perfiles con múltiples intereses |
+| Cálculo de afinidad         | ✔ Similitud por coincidencia directa de intereses |
+| Generación de recomendaciones | ✔ Ordenadas por puntaje de similitud |
+| Arquitectura modular        | ✔ Fácil de extender y mantener |
+
+---
+
+## 📌 Beneficios Principales
+
+- Código simple y entendible  
+- Buen rendimiento para redes pequeñas  
+- Fácil de integrar con módulos futuros  
+- Perfecto para prácticas de POO y algoritmos básicos
+```
+
 ## ⏱ 5. Consideraciones de Rendimiento
 
 La eficiencia del algoritmo es importante para mantener un buen desempeño a medida que crece el número de usuarios.
