@@ -1,94 +1,124 @@
-Módulo: Sistema de Recomendación de Amigos (RedSocial)
-1. Objetivo del Módulo
+🌐 Módulo: Sistema de Recomendación de Amigos (RedSocial)
+🧠 Algoritmo de similitud basado en intereses
+🎯 1. Objetivo del Módulo
 
-El objetivo de este módulo es implementar un sistema de recomendación de amigos basado en similitud entre usuarios.
-El algoritmo analiza los intereses registrados por cada usuario dentro de la red social y calcula coincidencias para determinar qué usuarios son compatibles entre sí.
+El propósito de este módulo es implementar un sistema de recomendación de amigos que analice los intereses de los usuarios dentro de una red social y determine qué tan compatibles son.
 
-Este módulo forma parte del proyecto RedSocial, cuyo propósito es modelar una red simple capaz de sugerir conexiones relevantes utilizando criterios básicos de afinidad.
+✔ Identifica similitudes
+✔ Ordena usuarios por afinidad
+✔ Recomienda nuevas conexiones
 
-2. Concepto: Recomendación Basada en Similitud
+Este módulo forma parte del proyecto RedSocial, enfocado en modelar un sistema básico pero funcional de sugerencias sociales.
 
-Un sistema de recomendación de amigos se fundamenta en identificar qué tan similares son dos usuarios según sus intereses.
+🤝 2. Concepto: Recomendación Basada en Similitud
 
-El enfoque utilizado en este proyecto es Coincidencia de Intereses (Interests Matching).
+El sistema utiliza el método Interests Matching, comparando intereses comunes entre usuarios.
 
-Principio de funcionamiento
+🔎 Principio de Funcionamiento
 
-Cada usuario posee un conjunto de intereses (ej. "Música", "Programación", "Videojuegos").
+🧍 Cada usuario tiene una lista de intereses
+🔄 Se comparan los intereses del usuario objetivo con los demás
+📊 Se calcula un puntaje de similitud
+⭐ Se recomiendan los usuarios con mayor afinidad
 
-Para cada usuario, se comparan sus intereses con los de todos los demás.
-
-Se calcula un puntaje de similitud basado en:
-
-Cantidad de intereses en común.
-
-Intereses únicos o distintos.
-
-Los usuarios con mayor puntaje son sugeridos como “amigos recomendados”.
-
-Este método es simple pero muy efectivo en redes pequeñas y en sistemas donde la información de usuarios es limitada.
-
-3. Implementación del Sistema
-3.1 Lenguaje de implementación
-
-El módulo está implementado en C++, utilizando clases separadas en:
-
-RedSocial.h
-
-RedSocial.cpp
-
-main.cpp
-
-El código está estructurado para ser claro, modular y escalable.
-
-3.2 Estructuras de Datos Clave
-Componente	Tipo	Descripción
-Usuario	Clase	Contiene nombre y lista de intereses.
-Intereses	vector<string>	Lista dinámica de intereses por usuario.
-RedSocial	Clase	Contiene la colección de usuarios y las funciones de recomendación.
-Similitud	Entero	Representa cuántos intereses coinciden entre dos usuarios.
-3.3 Algoritmo de Recomendación
-
-El algoritmo sigue estos pasos:
-
-Seleccionar el usuario objetivo.
-
-Comparar sus intereses con los de cada otro usuario.
-
-Calcular la similitud:
-
-similitud
-(𝐴,𝐵)=∣ intereses (𝐴) ∩ intereses (𝐵)∣
+📐 Fórmula de similitud
+𝑠
+𝑖
+𝑚
+𝑖
+𝑙
+𝑖
+𝑡
+𝑢
+𝑑
+(
+𝐴
+,
+𝐵
+)
+=
+∣
+𝑖
+𝑛
+𝑡
+𝑒
+𝑟
+𝑒
+𝑠
+𝑒
+𝑠
+(
+𝐴
+)
+∩
+𝑖
+𝑛
+𝑡
+𝑒
+𝑟
+𝑒
+𝑠
+𝑒
+𝑠
+(
+𝐵
+)
+∣
 similitud(A,B)=∣intereses(A)∩intereses(B)∣
 
-Ordenar a los usuarios por mayor similitud.
+Entre más elementos compartan, mayor afinidad existe.
 
-Devolver los usuarios con mayor puntaje.
+🏗️ 3. Implementación del Sistema
+⚙️ 3.1 Lenguaje y Organización
 
-Este método es equivalente a un conteo de intersección, ideal para un primer sistema de recomendaciones.
+📌 Lenguaje: C++
+📌 Archivos utilizados:
 
-4. Resultados y Ejemplo
-4.1 Ejemplo de Usuarios
+📁 RedSocial.h  
+📁 RedSocial.cpp  
+📁 main.cpp  
+
+
+El código está diseñado para ser claro, modular y fácil de extender.
+
+🧩 3.2 Estructuras de Datos Clave
+🧱 Componente	🔠 Tipo	📝 Descripción
+Usuario	Clase	Representa un usuario con nombre e intereses
+Intereses	vector<string>	Lista dinámica de intereses
+RedSocial	Clase	Contiene usuarios y el sistema de recomendación
+Similitud	Entero	Número de intereses en común
+🧮 3.3 Algoritmo de Recomendación
+
+🎯 Seleccionar usuario objetivo
+
+🔍 Comparar sus intereses con los demás
+
+➕ Calcular similitud
+
+📊 Ordenar por mayor afinidad
+
+🤝 Devolver usuarios recomendados
+
+📊 4. Resultados y Ejemplo
+👥 4.1 Usuarios del ejemplo
 Usuario	Intereses
 Ana	Música, Cine, Programación
 Luis	Programación, Videojuegos
 Marta	Música, Lectura
 Pedro	Cine, Programación
-Recomendación para Ana
+⭐ Recomendación para Ana
 Usuario	Intereses compartidos	Puntaje
 Pedro	Cine, Programación	2
 Luis	Programación	1
 Marta	Música	1
-
-Salida esperada en consola:
-
+💻 Salida esperada
 Recomendaciones para Ana:
 1. Pedro (2 intereses en común)
 2. Luis (1 interés en común)
 3. Marta (1 interés en común)
 
-5. Código del Sistema
-5.1 RedSocial.h
+🧾 5. Código del Sistema
+📂 5.1 RedSocial.h
 #ifndef REDSOCIAL_H
 #define REDSOCIAL_H
 
@@ -121,7 +151,7 @@ public:
 
 #endif
 
-5.2 RedSocial.cpp
+📂 5.2 RedSocial.cpp
 #include "RedSocial.h"
 
 Usuario::Usuario(std::string nombre, std::vector<std::string> intereses)
@@ -181,7 +211,7 @@ std::vector<std::pair<std::string, int>> RedSocial::recomendarAmigos(std::string
     return recomendaciones;
 }
 
-5.3 main.cpp
+📂 5.3 main.cpp
 #include <iostream>
 #include "RedSocial.h"
 
@@ -203,29 +233,48 @@ int main() {
     return 0;
 }
 
-6. Complejidad Temporal
+⚡ 6. Complejidad Temporal
+Operación	Complejidad
+Comparar dos usuarios	
+𝑂
+(
+𝐼
+1
+×
+𝐼
+2
+)
+O(I
+1
+	​
 
-Calcular similitud entre dos usuarios:
+×I
+2
+	​
 
-𝑂(𝐼1×𝐼2)
+)
+Comparar con N usuarios	
+𝑂
+(
+𝑁
+×
+𝐼
+2
+)
+O(N×I
+2
+)
 
-Comparar el usuario objetivo con N usuarios:
+✔ Eficiente para redes pequeñas
+✔ Fácil de mejorar con estructuras hash
 
-𝑂(𝑁×𝐼2)
+🏁 7. Conclusión
 
-Para redes pequeñas, este método funciona perfectamente y mantiene buena eficiencia.
-En redes grandes, se podrían considerar estructuras optimizadas como hash sets.
+Este sistema permite:
 
-7. Conclusión
+✨ Registrar usuarios
+✨ Calcular similitud
+✨ Ordenar recomendaciones
+✨ Extender el modelo fácilmente
 
-El sistema implementado permite:
-
-Registrar usuarios con intereses.
-
-Calcular similitud entre perfiles.
-
-Generar recomendaciones ordenadas.
-
-Extender fácilmente el modelo (pesos, categorías, redes grandes).
-
-Este módulo demuestra un enfoque práctico y claro para construir un primer sistema de recomendación dentro de una red social.
+Es un enfoque práctico, escalable y excelente como primer sistema de recomendación.
